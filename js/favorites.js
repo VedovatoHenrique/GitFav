@@ -72,6 +72,13 @@ export class FavoritesView extends Favorites {
   }
 
   update() {
+  
+    if(this.entries.length === 0) {
+      this.root.querySelector('.empty').classList.remove('hide')
+    }else{
+      this.root.querySelector('.empty').classList.add('hide')
+    }
+
     this.removeAllTr()
 
     this.entries.forEach(user => {
@@ -90,13 +97,12 @@ export class FavoritesView extends Favorites {
         if(isOK) {
           this.delete(user)
         }
-        if(this.entries.length < 0) {
-          this.root.querySelector('empty').classList.remove('hide')
-        }
+        
       }
 
       this.tbody.append(row)
     })
+  
   }
 
   creatRow() {
@@ -131,9 +137,6 @@ export class FavoritesView extends Favorites {
   }
 
   removeAllTr() {
-    if(this.entries.length > 0) {
-      this.root.querySelector('empty').classList.add('hide')
-    }
 
     this.tbody.querySelectorAll('tr').forEach(tr => {
       tr.remove()
