@@ -107,6 +107,7 @@ header{
   border: none;
   background-color: #06181C;
   border-radius: .4rem ;
+  outline: none;
 }
 
 table{
